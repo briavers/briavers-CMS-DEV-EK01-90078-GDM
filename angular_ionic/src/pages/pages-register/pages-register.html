@@ -1,0 +1,107 @@
+<ion-content padding>
+
+
+  <ion-slides #signupSlider class="scroll-content">
+
+
+    <ion-slide shouldLockSwipes="true">
+      <h1 class="titleMainScreen" color="darkRed">Sleep Tight</h1>
+      <ion-list [formGroup]="slideOneForm">
+        <ion-item class="formInput">>
+          <ion-label stacked>Username</ion-label>
+          <ion-input type="text" formControlName="userName" class="form-control"></ion-input>
+        </ion-item>
+
+        <ion-item class="formInput">>
+          <ion-label stacked>Email</ion-label>
+          <ion-input type="email" formControlName="email" class="form-control"></ion-input>
+        </ion-item>
+
+        <ion-item class="formInput">
+          <ion-label stacked>Password</ion-label>
+          <ion-input type={{passwordType}} class="form-control" formControlName="password"></ion-input>
+          <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+        </ion-item>
+
+        <ion-item class="formInput">
+          <ion-label stacked>confirm Password</ion-label>
+          <ion-input type='password' class="form-control" formControlName="passwordRepeat"></ion-input>
+        </ion-item>
+
+        <ion-item class="formInput">
+          <ion-label stacked>Voornaam</ion-label>
+          <ion-input type="text" formControlName="firstName" class="form-control"></ion-input>
+        </ion-item>
+
+        <ion-item class="formInput">
+          <ion-label stacked>Achternaam</ion-label>
+          <ion-input type="text" formControlName="lastName" class="form-control"></ion-input>
+        </ion-item>
+
+        <button ion-button color="darkRed" (click)="this.navCtrl.pop()"> terug naar login </button>
+        <button ion-button color="lightOrange" (click)="next(slideOneForm.value)"> Volgende </button>
+
+      </ion-list>
+    </ion-slide>
+
+
+    <ion-slide shouldLockSwipes="true">
+      <h1 class="titleMainScreen" color="darkRed">Sleep Tight</h1>
+      <ion-list [formGroup]="slideTwoForm">
+
+        <ion-item class="formInput">
+          <ion-label stacked>school</ion-label>
+          <ion-input type="text" formControlName="school" class="form-control"></ion-input>
+        </ion-item>
+
+        <ion-item class="formInput">
+          <ion-label stacked>Hoeveel uur wil je slapen per nacht </ion-label>
+          <ion-input type="number" formControlName="hoursSleepANight" class="form-control"></ion-input>
+        </ion-item>
+
+        <ion-item class="formInput">
+          <ion-label stacked> Tegen waneer wil je dat doen</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" formControlName="hoursSleepANightDeadline"></ion-datetime>
+        </ion-item>
+
+        <ion-item class="formInput">
+          <ion-label stacked>Wat voor slaper ben je </ion-label>
+          <ion-select formControlName="typeSleeper" class="form-control">
+            <ion-option value="type_0"> Sleep Lover </ion-option>
+            <ion-option value="type_1"> King / Queen of sleep </ion-option>
+            <ion-option value="type_2"> Panda </ion-option>
+            <ion-option value="type_3"> Screen Addict </ion-option>
+            <ion-option value="type_4"> Restless bat </ion-option>
+            <ion-option value="type_5"> Sleepyhead </ion-option>
+          </ion-select>
+        </ion-item>
+
+
+
+
+        <ion-item class="formInput">
+          <ion-label stacked> Wil je je locatie delen met je vrienden? </ion-label>
+          <ion-checkbox type="checkbox" formControlName="latLong" class="form-control"></ion-checkbox>
+        </ion-item>
+
+
+
+
+
+
+
+
+
+
+        <ion-item class="formInput">
+          <ion-label stacked>Vertel meer over jezelf </ion-label>
+          <ion-textarea type="text" formControlName="bio" class="form-control">
+          </ion-textarea>
+        </ion-item>
+
+        <button ion-button color="lightOrange" (click)="submit(slideTwoForm.value)"> registreer </button>
+
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

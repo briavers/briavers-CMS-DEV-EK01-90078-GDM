@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <h1 color="darkRed">Jouw slaap gegevens</h1>
+
+  <div>
+    <div style="display: block; height : 300px">
+      <canvas #barCanvas></canvas>
+    </div>
+  </div>
+
+  <div>
+    <div style="display: block; height : 300px">
+      <canvas #lineCanvas></canvas>
+    </div>
+  </div>
+
+
+
+  <button ion-button block type="submit" (click)="goToSleepRegister()" class="btn btn-default" color='lightOrange'>Registreer
+    slaap</button>
+</ion-content>

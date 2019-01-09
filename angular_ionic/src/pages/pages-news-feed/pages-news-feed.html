@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 color="darkRed">News Feed</h1>
+  <div *ngFor="let item of newsFeed">
+
+    <ion-card *ngIf="item.post_type === 'image_contest'" (dblclick)="likeIt(item)" class="imageCard">
+      <img src={{item.thumbnail}} />
+      <ion-card-content>
+        <ion-card-title>
+          <span> {{item.post_title}} </span>
+          <span>
+            <ion-icon *ngIf="isItLiked(item)" name="heart" style="float:right;" color='darkRed'></ion-icon>
+            <ion-icon *ngIf="!isItLiked(item)" name="heart-outline" color='darkRed' style="float:right;"></ion-icon>
+          </span>
+        </ion-card-title>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-item *ngIf="item.post_type === 'tips_and_tools'" (click)="itemTapped($event, item)">
+      <ion-thumbnail item-start>
+        <img src={{item.thumbnail}}>
+      </ion-thumbnail>
+      <h2>{{item.post_title}}</h2>
+      <p>{{item.post_excerpt}}</p>
+    </ion-item>
+
+  </div>
+</ion-content>

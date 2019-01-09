@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 color="darkRed">Jouw Foto's</h1>
+  <ion-list>
+
+
+    <ion-item *ngFor="let image of images ">
+      <ion-thumbnail item-start>
+        <img src={{image.thumbnail}}>
+      </ion-thumbnail>
+      <ion-icon *ngIf="image.approved !== 'false'" name="checkmark-circle" color="checked"></ion-icon>
+      <ion-icon *ngIf="image.approved === 'false' && image.post_status === 'pending'" name="help-circle" color="red"></ion-icon>
+      <ion-icon *ngIf="image.approved === 'false' && image.post_status === 'trash'" name="close-circle" color="red"></ion-icon>
+      <h2>{{image.post_title}}</h2>
+      <p *ngIf="image.likedBy !== 'false' ">
+        <ion-icon name="heart-outline"></ion-icon> {{image.likedBy.length}}
+      </p>
+      <button ion-button clear item-end (click)='requestRemove(image)'>foto verwijderen</button>
+    </ion-item>
+
+
+  </ion-list>
+
+  <ion-list>
+    <form [formGroup]="registerImageForm" enctype="multipart/form-data">
+
+
+
+      <ion-item>
+        <ion-label stacked>Title</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-label stacked>foto</ion-label>
+        <ion-input type="file" (change)="onFileChanged($event)"></ion-input>
+      </ion-item>
+
+      <button ion-button (click)="submitPicture(registerImageForm.value)"> registreer deze foto </button>
+    </form>
+  </ion-list>
+
+
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1 color="darkRed">quiz</h1>
+  <ion-slides #quizSlider>
+    <ion-slide *ngFor="let question of questions; let i = index">
+      <h2>test</h2>
+      <h1>{{ question.question }}</h1>
+
+      <!-- Single choice: radio items -->
+      <div>
+        <ion-list radio-group [(ngModel)]="question.answer">
+          <ion-item no-lines *ngFor="let answer of question.answers">
+            <ion-label>{{ answer.text }}</ion-label>
+            <ion-radio [value]="answer.value"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </div>
+
+
+      <ion-row margin-top>
+        <ion-col *ngIf="i !== 0">
+          <button (click)="showPrevious()" ion-button text-only [disabled]="i === 0">Previous</button>
+        </ion-col>
+        <ion-col>
+          <button [disabled]="!question.answer" *ngIf="i < questions.length - 1" (click)="showNext()" ion-button
+            text-only>Next</button>
+          <button [disabled]="!question.answer" *ngIf="i === questions.length - 1" (click)="submit()" ion-button
+            text-only>Submit</button>
+        </ion-col>
+      </ion-row>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h2>Wat voor slaper ben jij? </h2>
+      <span *ngFor="let resultItem of result"> 
+<span *ngIf='resultItem.value !==0 '> {{types[resultItem.key]}} met {{resultItem.value}} % <button ion-button color="lightOrange"
+(click)="addToProfile(resultItem.key)"> Maak hiervan je slaap type in je profiel </button> </span> <br><br>
+      </span>
+
+    <button (click)="navigateToNewsFeed()" ion-button text-only>Go To News Feed</button>
+    </ion-slide>
+
+
+  </ion-slides>
+
+</ion-content>

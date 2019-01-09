@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="selectedItem">
+  <h1 color="darkRed">{{selectedItem.post_title}}</h1>
+  <ion-card class="imageCard">
+    <img src={{selectedItem.thumbnail}} />
+    <ion-card-content>
+      <p>{{selectedItem.post_date}}</p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <p>
+    {{selectedItem.post_content}}
+  </p>
+
+
+</ion-content>
+
+<ion-content padding *ngIf="!selectedItem">
+  <p>sorry, something must have gone wrong</p>
+</ion-content>
