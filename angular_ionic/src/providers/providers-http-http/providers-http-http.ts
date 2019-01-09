@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 */
 @Injectable()
 export class ProvidersHttpHttpProvider {
-  private baseUrl = 'https://2122be45.ngrok.io/wp-json'
+  private baseUrl = 'https://cmsdevelopment.be/briavers/wp-json'
   constructor(public authService: ProvidersAuthServiceProvider, public http: HttpClient) {
 
   }

@@ -144,7 +144,7 @@ export class PagesFriendsPage {
     this.httpCall.friendRequest(this.friendRequestsForm, id).then((result) => {
       console.log('result')
       console.log(result)
-
+      this.navCtrl.setRoot(PagesFriendsPage)
     }).catch((err) => {
       console.log(err)
       let alert = this.alertCtrl.create({

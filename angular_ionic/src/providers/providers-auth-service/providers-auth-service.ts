@@ -12,7 +12,7 @@ import Axios from 'axios';
 export class ProvidersAuthServiceProvider {
   private token;
   public me;
-  private baseUrl = 'https://2122be45.ngrok.io/wp-json'
+  private baseUrl = 'https://cmsdevelopment.be/briavers/wp-json'
   public registerToken;
   constructor() {}
 
@@ -199,7 +199,7 @@ export class ProvidersAuthServiceProvider {
         'type_sleeper': formData.typeSleeper,
         'home_lat': formData.lat,
         'home_long': formData.long,
-        'profile_picture': '13324',
+        'profile_picture': '13341',
       }
 
     }, {
