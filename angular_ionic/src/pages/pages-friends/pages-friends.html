@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1 color="darkRed">Vrienden</h1>
+
+  <ion-list no-lines [formGroup]="friendRequestsForm">
+    <ion-item class="formInput">
+      <ion-label stacked>Voeg vrienden toe via hun email adres. </ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+
+    <button ion-button block color="lightOrange" (click)="sendFriendRequest('sendFriendRequest')" class="btn btn-default">Verstuur
+      vriendschap verzoek </button>
+  </ion-list>
+
+
+  <div id='map' class="leaflet-container"></div>
+
+
+  <h1 *ngIf="friends">Vrienden</h1>
+  <ion-item *ngFor="let friend of friends" (click)="itemTapped($event, friend)">
+    <ion-thumbnail item-start>
+      <img src={{friend.profilePicture}}>
+    </ion-thumbnail>
+    <h2> {{friend.display_name}} </h2>
+    <p>
+      {{friend.bio}}
+    </p>
+    <ion-icon name="trash" style="float:right;" (click)='removeFriend(friend)'></ion-icon>
+  </ion-item>
+
+  <h1 *ngIf="pendingFriends">Vriendschapsverzoeken voor jouw</h1>
+  <ion-item *ngFor="let friend of pendingFriends" (click)='acceptRequest(friend)'>
+    <ion-thumbnail item-start>
+      <img src={{friend.profilePicture}}>
+    </ion-thumbnail>
+    <h2> {{friend.display_name}} </h2>
+    <ion-icon name="help" style="float:right;"></ion-icon>
+  </ion-item>
+
+
+  <h1 *ngIf="friendRequests">Vriendschapsverzoeken dat je hebt gestuurd</h1>
+  <ion-item *ngFor="let friend of friendRequests" (click)='removeFriendRequest(friend)'>
+    <ion-thumbnail item-start>
+      <img src={{friend.profilePicture}}>
+    </ion-thumbnail>
+    <h2> {{friend.display_name}} </h2>
+    <ion-icon name="timer" style="float:right;"></ion-icon>
+  </ion-item>
+
+
+</ion-content>

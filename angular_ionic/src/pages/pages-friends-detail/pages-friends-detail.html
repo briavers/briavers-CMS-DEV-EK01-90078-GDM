@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="friend">
+  <h1 color="darkRed">{{friend.display_name}}</h1>
+  <ion-card class="imageCard">
+    <img src={{friend.profilePicture}} />
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
+  <p>
+    School: {{friend.school}}
+  </p>
+  <p>
+    Over mij: {{friend.bio}}
+  </p>
+
+
+
+  <h2 *ngIf="friend.images.length > 0">his pictures </h2>
+  <ion-card *ngFor="let item of friend.images" (dblclick)="likeIt(item)" class="imageCard">
+    <img src={{item.thumbnail}} />
+    <ion-card-content>
+      <ion-card-title>
+        <span> {{item.post_title}} </span>
+
+        <span>
+
+          <ion-icon *ngIf="isItLiked(item)" name="heart" style="float:right;" color='darkRed'></ion-icon>
+          <ion-icon *ngIf="!isItLiked(item)" name="heart-outline" color='darkRed' style="float:right;"></ion-icon>
+
+        </span>
+
+
+      </ion-card-title>
+
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>
+
+<ion-content padding *ngIf="!friend">
+  <p>sorry, something must have gone wrong</p>
+</ion-content>

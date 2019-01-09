@@ -1,0 +1,26 @@
+<ion-content padding>
+
+  <h1 class="titleMainScreen" color="darkRed">Sleep Tight</h1>
+  <ion-list no-lines [formGroup]="loginForm">
+    <ion-item class="formInput">
+      <ion-label stacked>Username</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+
+    <ion-item class="formInput">
+      <ion-label stacked>Password</ion-label>
+      <ion-input type={{passwordType}} class="form-control" formControlName="password"></ion-input>
+      <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+    </ion-item>
+
+    <ion-item class="formInput">
+      <ion-label>Remember Me?</ion-label>
+      <ion-checkbox formControlName="rememberMe" checked="false"></ion-checkbox>
+    </ion-item>
+
+    <button ion-button block color="lightOrange" type="submit" (click)="tryLogin(loginForm.value)" class="btn btn-default">Login</button>
+    <button ion-button block color="lightOrange" (click)="goToRegister()" class="btn btn-default">Register</button>
+  </ion-list>
+
+
+</ion-content>

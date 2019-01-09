@@ -1,0 +1,39 @@
+page-pages-sounds {
+
+}
+
+
+.soundItem{
+  width: 75%;
+  background-color: white !important;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 10px auto;
+  text-align: center;
+  color: black;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+.soundItem.active {
+  width: 75%;
+  background-color: map-get($colors, orange) !important;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 10px auto;
+  text-align: center;
+  color: white;
+  font-size: 1.6rem;
+  position: relative;
+}
+.timer{
+   width: 75%;
+   background-color: map-get($colors, mediumRed) !important;
+   padding: 5px, 10px;
+   border-radius: 10px;
+   margin: 10px auto;
+   text-align: center;
+   color: white;
+   font-size: 1.6rem;
+   position: relative;
+}

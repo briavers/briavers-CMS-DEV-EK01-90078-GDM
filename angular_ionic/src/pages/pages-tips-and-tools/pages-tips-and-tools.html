@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 color="darkRed">Tips en Tools</h1>
+  <div *ngFor="let item of newsFeed">
+    <ion-item (click)="itemTapped($event, item)">
+      <ion-thumbnail item-start>
+        <img src={{item.thumbnail}}>
+      </ion-thumbnail>
+      <h2>{{item.post_title}}</h2>
+      <p>{{item.post_excerpt}}</p>
+    </ion-item>
+  </div>
+
+</ion-content>

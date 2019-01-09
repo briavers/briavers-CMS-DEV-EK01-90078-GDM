@@ -1,0 +1,198 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary: #D95242,
+  secondary:  #32db64,
+  danger:     #e6acac,
+  light:      #f4f4f4,
+  dark:       #222,
+
+
+  darkRed:        #A83738,
+  mediumRed:      #D95242,
+  orange:         #F26D40,
+  lightOrange:    #F5A14D,
+  yellow:         #F3CB60,
+);
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import url('https://fonts.googleapis.com/css?family=Kalam|Quicksand:400,700');
+
+h1,
+h2,
+h3,
+h4,
+.title,
+.card-title-md {
+  font-family: 'Kalam', serif;
+  color : map-get($colors, darkRed);
+}
+
+p, .text {
+  font-family: 'Quicksand', sans-serif
+}
+// App Style
+// --------------------------------------------------
+// All basic styles for the app
+
+$background-color: map-get($colors, yellow );
+$label-md-text-color: map-get($colors, darkRed);
+$label-md-text-color-focused: map-get($colors, darkRed);
+$item-md-divider-background: map-get($colors, yellow);
+$text-input-md-margin-left: 16px;
+
+
+
+
+
+// App Forms Style
+// --------------------------------------------------
+// All style for forms
+
+.formInput.item.item-block.item-md {
+  width: 75%;
+  margin: 0 auto;
+  background-color: map-get($colors, yellow);
+}
+.formInput.item.item-block.item-md{
+  width: 75%;
+  margin: 0 auto;
+  background-color: map-get($colors, yellow);
+}
+ion-select.select-md,
+textarea, ion-textarea {
+width: 100%;
+background-color: white;
+border-radius: 15px;
+}
+
+
+
+.button-block-md {
+  width: 75% !important;
+  padding: 10px !important;
+  margin: 15px auto !important;
+}
+
+ion-input,
+select-text {
+  background-color: white;
+  border-radius: 15px;
+
+}
+.item-md{
+  background-color: map-get($colors, yellow) !important;
+}
+.item-md.item-block .item-inner{
+  border-bottom :  0px !important; 
+}
+.datetime.datetime-md{
+  background-color: white;
+  border-radius: 15px;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+$range-md-bar-active-background-color: map-get($colors, mediumRed);
+$range-md-bar-background-color : white;
+$range-md-pin-color: map-get($colors, mediumRed);
+$range-md-bar-height:5px;
+.range-md-secondary .range-bar-active,
+.range-md-secondary .range-knob,
+.range-md-secondary .range-pin,
+.range-md-secondary .range-pin::before{
+  background-color: map-get($colors, mediumRed) !important;
+}
+
+.range-tick {
+  margin-left: -6px !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  top: 17.5px !important;
+  z-index: 1 !important;
+  width: 12px !important;
+  height: 12px !important;
+  background: white !important;
+  pointer-events: none !important;
+}
+.range-tick-active {
+  background: map-get($colors, mediumRed) !important;
+}
+.text-input-md{
+  margin-left: 15px !important;
+}

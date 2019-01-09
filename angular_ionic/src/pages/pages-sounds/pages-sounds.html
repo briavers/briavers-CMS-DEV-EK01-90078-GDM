@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1 color="darkRed">Welke Geluiden wil je horen?</h1>
+
+  <ion-list no-lines>
+    <ion-item class="soundItem" *ngFor="let sound of sounds" id="{{sound.title}}" (click)="soundPressed(sound)">
+      {{sound.title}}
+    </ion-item>
+  </ion-list>
+
+  <ion-list no-lines>
+<ion-item *ngIf="timeInSeconds && timeInSeconds > 0" large block clear class="soundItem timer">{{timer.displayTime}}</ion-item>
+<ion-item *ngIf="!timeInSeconds" (click)='setTimer()' large block clear class="soundItem timer"> start timer</ion-item>
+  </ion-list>
+
+</ion-content>

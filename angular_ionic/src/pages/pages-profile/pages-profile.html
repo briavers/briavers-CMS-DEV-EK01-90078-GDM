@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sleep Tight</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1 class="titleMainScreen" color="darkRed">Sleep Tight</h1>
+  <ion-list [formGroup]="profileForm">
+
+    <ion-item>
+      <ion-label stacked>Voornaam</ion-label>
+      <ion-input type="text" formControlName="firstName" class="form-control"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Achternaam</ion-label>
+      <ion-input type="text" formControlName="lastName" class="form-control"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>school</ion-label>
+      <ion-input type="text" formControlName="school" class="form-control"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>hoeveel uur wil je slapen per nacht</ion-label>
+      <ion-input type="number" formControlName="hoursSleepANight" class="form-control"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf='me'>
+      <ion-label stacked>tegen waneer wil je dat doen</ion-label>
+<ion-datetime displayFormat="DD/MM/YYYY" formControlName="hoursSleepANightDeadline" class="form-control" placeholder="{{me.sleepGoalDate}}">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Wat voor slaper ben je </ion-label>
+      <ion-select formControlName="typeSleeper" class="form-control">
+        <ion-option value="type_0"> Sleep Lover </ion-option>
+        <ion-option value="type_1"> King / Queen of sleep </ion-option>
+        <ion-option value="type_2"> Panda </ion-option>
+        <ion-option value="type_3"> Screen Addict </ion-option>
+        <ion-option value="type_4"> Restless bat </ion-option>
+        <ion-option value="type_5"> Sleepyhead </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked> Wil je je locatie delen met je vrienden? </ion-label>
+      <ion-checkbox type="checkbox" formControlName="latLong" class="form-control"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Vertel meer over jezelf </ion-label>
+      <ion-textarea type="text" formControlName="bio" class="form-control">
+      </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail item-start *ngIf="me">
+        <img src={{me.profilePicture}}>
+      </ion-thumbnail>
+
+      <ion-label stacked>foto</ion-label>
+      <ion-input type="file" (change)="onFileChanged($event)" #fileInput></ion-input>
+    </ion-item>
+
+
+
+    <button ion-button color="lightOrange" (click)="submit(profileForm.value)"> Opslaan </button>
+
+
+  </ion-list>
+</ion-content>

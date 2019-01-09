@@ -1,0 +1,19 @@
+page-home {
+
+}
+.passwordIcon {
+  font-size: 2rem !important;
+  position: relative !important;
+  top: 22px !important;
+  margin: 0 auto !important;
+}
+.titleMainScreen{
+  font-size: 60px;
+  margin: 55px auto 10px !important;
+  width: 290px;
+  color: map-get($colors, darkRed);
+}
+.button-block-md {
+  width: 75% !important;
+  margin: 0 auto;
+}
